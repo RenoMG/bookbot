@@ -12,8 +12,10 @@ def main(input):
     print(get_num_words(input))
     print("--------- Character Count -------")
     for data in get_data:
-        if data["char"] != " " and data["char"] != "\n":
-            print(f"{data["char"]}: {data["num"]}")
+        if not data["char"].isalpha():
+            continue
+
+        print(f"{data["char"]}: {data["num"]}")
     print("============= END ===============")
 
 #print("Please enter a file path for a txt file.")

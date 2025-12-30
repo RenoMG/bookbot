@@ -16,3 +16,17 @@ def char_counter(file_path):
             char_count_db[char.lower()] = char_count_db[char.lower()] + 1
 
     return char_count_db
+
+def organise_char_count(file_path):
+    get_char = char_counter(file_path)
+
+    list_of_counts = []
+    
+    for char in get_char:
+        list_of_counts.append({"char": f"{char}", "num": get_char[char]})
+
+    list_of_counts.sort(reverse=True, key=sort_char_count)
+    return list_of_counts
+
+def sort_char_count(items):
+    return items["num"]

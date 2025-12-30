@@ -5,7 +5,16 @@ def get_book_text(file_path):
         return f.read()
 
 def main(input):
-    print(organise_char_count(input))
+    get_data = organise_char_count(input)
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {input}...")
+    print("----------- Word Count ----------")
+    print(get_num_words(input))
+    print("--------- Character Count -------")
+    for data in get_data:
+        if data["char"] != " " and data["char"] != "\n":
+            print(f"{data["char"]}: {data["num"]}")
+    print("============= END ===============")
 
 #print("Please enter a file path for a txt file.")
 main("books/frankenstein.txt")
